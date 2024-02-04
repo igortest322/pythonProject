@@ -19,5 +19,5 @@ def test_run3(playwright: Playwright) -> None:
     browser.close()
 
 
-# with sync_playwright() as playwright:
+#121 with sync_playwright() as playwright:
 #     run(playwright)
