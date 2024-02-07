@@ -6,6 +6,7 @@ def test_run4(playwright: Playwright) -> None:
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://the-internet.herokuapp.com/login")
+    page.pause()
     #check fields+button
     expect(page.get_by_label("Username")).to_be_visible()
     expect(page.get_by_label("Password")).to_be_visible()
@@ -32,7 +33,6 @@ def test_run4(playwright: Playwright) -> None:
 #     run(playwright)
 
 # from playwright.sync_api import Page, expect
-#
 #
 # def test_example(page: Page) -> None:
 #     page.goto("https://the-internet.herokuapp.com/login")

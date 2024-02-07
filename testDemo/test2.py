@@ -6,7 +6,7 @@ def test_run2(playwright: Playwright) -> None:
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://the-internet.herokuapp.com/checkboxes")
-
+    # page.pause()
     #checkboxes are visible on the webpage
     expect(page.locator("#checkboxes")).to_be_visible()
     #read checkboxes states (is selected, is deselected)

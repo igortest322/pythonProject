@@ -6,6 +6,7 @@ def test_run5(playwright: Playwright) -> None:
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://the-internet.herokuapp.com/upload")
+    #page.pause()
     #check buttons
     expect(page.locator("#file-upload")).to_be_visible()
     expect(page.get_by_role("button", name="Upload")).to_be_visible()
@@ -16,12 +17,18 @@ def test_run5(playwright: Playwright) -> None:
     page.get_by_role("button", name="Upload").click()
     #expect file upload message
     expect(page.get_by_role("heading", name="File Uploaded!"))
+
     #open download page
     page.goto("https://the-internet.herokuapp.com/download")
+    expect(page.get_by_text("test1.txt"))
     #download uplloaded fille
     with page.expect_download() as download_info:
         page.get_by_role("link", name="test1.txt").click()
     download = download_info.value
+    page.wait_for_timeout(3000)
+    print(download)
+
+
 
     # ---------------------
     context.close()
