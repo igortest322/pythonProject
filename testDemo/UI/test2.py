@@ -18,6 +18,7 @@ def test_run2(playwright: Playwright) -> None:
     #deselect selected checkbox
     page.get_by_role("checkbox").first.uncheck()
     expect(page.get_by_role("checkbox").first).not_to_be_checked()
+    page.screenshot(path="./screenshots/screenshot2.png")
 
 
     # ---------------------

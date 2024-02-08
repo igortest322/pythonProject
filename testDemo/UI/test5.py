@@ -6,7 +6,7 @@ def test_run5(playwright: Playwright) -> None:
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://the-internet.herokuapp.com/upload")
-    #page.pause()
+    # page.pause()
     #check buttons
     expect(page.locator("#file-upload")).to_be_visible()
     expect(page.get_by_role("button", name="Upload")).to_be_visible()
@@ -26,6 +26,7 @@ def test_run5(playwright: Playwright) -> None:
         page.get_by_role("link", name="test1.txt").click()
     download = download_info.value
     page.wait_for_timeout(3000)
+    page.screenshot(path="./screenshots/screenshot5.png")
     print(download)
 
 

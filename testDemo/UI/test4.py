@@ -6,7 +6,7 @@ def test_run4(playwright: Playwright) -> None:
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://the-internet.herokuapp.com/login")
-    page.pause()
+    # page.pause()
     #check fields+button
     expect(page.get_by_label("Username")).to_be_visible()
     expect(page.get_by_label("Password")).to_be_visible()
@@ -21,6 +21,7 @@ def test_run4(playwright: Playwright) -> None:
     page.get_by_role("button", name=" Login").click()
     #check login status message
     expect(page.get_by_text("You logged into a secure area"))
+    page.screenshot(path="./screenshots/screenshot4.png")
 
     #page.get_by_role("link", name="Logout").click()
 

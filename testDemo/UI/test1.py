@@ -17,6 +17,7 @@ def test_run1(playwright: Playwright) -> None:
 
     # Expect DeleteButton invisible
     expect(page.get_by_role("button", name="Delete")).not_to_be_visible()
+    page.screenshot(path="./screenshots/screenshot1.png")
 
 
     # ---------------------

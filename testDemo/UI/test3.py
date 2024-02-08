@@ -5,13 +5,14 @@ def test_run3(playwright: Playwright) -> None:
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://the-internet.herokuapp.com/dropdown")
-    page.pause()
+    # page.pause()
     #check dropdown visible
     # expect(page.locator("#dropdown")).to_be_visible()
     #select any option
     page.locator("#dropdown").select_option("1")
     #expect option selected
     expect(page.get_by_text("Option 1"))
+    page.screenshot(path="./screenshots/screenshot3.png")
 
     # page.locator("#dropdown").select_option("2")
 
