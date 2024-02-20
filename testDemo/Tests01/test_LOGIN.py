@@ -1,17 +1,21 @@
 from playwright.sync_api import Playwright, sync_playwright, expect
 
+# Login Form:
+# 	- navigate to ‘https://the-internet.herokuapp.com/login’
+# 	- fill credentials (you could find them on the page) and click login
+# 	- verify that user logged in, success message appears
 
-def test_run4(playwright: Playwright) -> None:
+def test_login(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://the-internet.herokuapp.com/login")
-    # page.pause()
+    # page.pause()  #for debug in codgen
     #check fields+button
     expect(page.get_by_label("Username")).to_be_visible()
     expect(page.get_by_label("Password")).to_be_visible()
     expect(page.get_by_role("button", name=" Login")).to_be_visible()
-    #fill username
+    # fill username
     page.get_by_label("Username").click()
     page.get_by_label("Username").fill("tomsmith")
     #Fill Passowrd
@@ -20,27 +24,12 @@ def test_run4(playwright: Playwright) -> None:
     #click login button
     page.get_by_role("button", name=" Login").click()
     #check login status message
-    expect(page.get_by_text("You logged into a secure area"))
-    page.screenshot(path="./screenshots/screenshot4.png")
-
-    #page.get_by_role("link", name="Logout").click()
+    expect(page.get_by_text("You logged into a secure area")).to_be_visible()
+    page.screenshot(path="../Tests01/screenshots/Login/LoginYouLogged.png")
 
     # ---------------------
     context.close()
     browser.close()
 
-
-# with sync_playwright() as playwright:
-#     run(playwright)
-
-# from playwright.sync_api import Page, expect
-#
-# def test_example(page: Page) -> None:
-#     page.goto("https://the-internet.herokuapp.com/login")
-#     page.get_by_label("Username").click()
-#     page.get_by_label("Username").fill("tomsmith")
-#     page.get_by_label("Password").click()
-#     page.get_by_label("Password").fill("SuperSecretPassword!")
-#     page.get_by_role("button", name=" Login").click()
-#     page.get_by_text("You logged into a secure area").click()
-#     page.get_by_role("link", name="Logout").click()
+with sync_playwright() as playwright:
+    test_login(playwright)
