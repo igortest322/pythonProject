@@ -25,7 +25,7 @@ def test_login(playwright: Playwright) -> None:
     page.get_by_role("button", name=" Login").click()
     #check login status message
     expect(page.get_by_text("You logged into a secure area")).to_be_visible()
-    page.screenshot(path="../Tests01/screenshots/Login/LoginYouLogged.png")
+    page.screenshot(path="../screenshots/Login/LoginYouLogged.png")
 
     # ---------------------
     context.close()

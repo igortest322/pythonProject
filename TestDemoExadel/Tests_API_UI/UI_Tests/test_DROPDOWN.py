@@ -15,7 +15,7 @@ def test_dropdown(playwright: Playwright) -> None:
     #expect option selected
     expect(page.get_by_text("Option 1"))
     # page.locator("#dropdown").select_option("2")
-    page.screenshot(path="../Tests01/screenshots/Dropdown/DROPDOWN.png")
+    page.screenshot(path="../screenshots/Dropdown/DROPDOWN.png")
 
     # ---------------------
     context.close()

@@ -18,7 +18,7 @@ def test_buttons(playwright: Playwright) -> None:
     page.get_by_role("button", name="Delete").click()
     # Expect DeleteButton invisible
     expect(page.get_by_role("button", name="Delete")).not_to_be_visible()
-    page.screenshot(path="../Tests01/screenshots/Buttons/Buttons.png")
+    page.screenshot(path="../screenshots/Buttons/Buttons.png")
 
     # ---------------------
     context.close()

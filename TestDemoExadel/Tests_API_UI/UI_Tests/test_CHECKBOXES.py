@@ -20,7 +20,7 @@ def test_checkboxes(playwright: Playwright) -> None:
     #deselect selected checkbox
     page.get_by_role("checkbox").first.uncheck()
     expect(page.get_by_role("checkbox").first).not_to_be_checked()
-    page.screenshot(path="../Tests01/screenshots/Checkboxes/CHECKBOXES.png")
+    page.screenshot(path="../screenshots/Checkboxes/CHECKBOXES.png")
 
     # ---------------------
     context.close()

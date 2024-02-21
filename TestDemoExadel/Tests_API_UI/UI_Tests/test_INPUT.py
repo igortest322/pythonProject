@@ -19,7 +19,7 @@ def test_input(playwright: Playwright) -> None:
     page.get_by_role("spinbutton").fill("3")
     #expect filled nubmer
     expect(page.get_by_role("spinbutton")).to_have_value("3")
-    page.screenshot(path="../Tests01/screenshots/Input/INPUT.png")
+    page.screenshot(path="../screenshots/Input/INPUT.png")
 
     # ---------------------
     context.close()
