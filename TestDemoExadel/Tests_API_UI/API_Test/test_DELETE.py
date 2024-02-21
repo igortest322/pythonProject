@@ -9,5 +9,5 @@ ENDPOINT = "https://gorest.co.in"
 response = requests.get(ENDPOINT)
 
 def test_delete_by_user_id():
-    response = requests.delete(ENDPOINT + "/public/v2/users/6129369", headers={"Authorization": "Bearer 76d9a7ab301b6e59339597face88a679c05c7724d61352b3982e827f2eb205d6"})
+    response = requests.delete("https://gorest.co.in/public/v2/users/6615213", headers={"Authorization": "Bearer 79c36adee0abd73f7986644e389c5d7b44b604e55d9a92a81de376c80b885d16"})
     assert response.status_code == 204

@@ -11,10 +11,11 @@ response = requests.get(ENDPOINT)
 def test_patch_api_call():
     data = {
         "name":"Allasani1 Peddana1",
+        'gender': 'female',
         "email":"allasani1.peddana1@15ce.com",
         "status":"active"
     }
-    response = requests.patch(ENDPOINT + "/public/v2/users/6139877", headers={"Authorization": "Bearer 76d9a7ab301b6e59339597face88a679c05c7724d61352b3982e827f2eb205d6"}, data=data)
+    response = requests.patch("https://gorest.co.in/public/v2/users/6615213", headers={"Authorization": "Bearer 79c36adee0abd73f7986644e389c5d7b44b604e55d9a92a81de376c80b885d16"}, data=data)
     assert response.status_code == 200
     print(response.json())
     assert response.json()["email"] == "allasani1.peddana1@15ce.com"
